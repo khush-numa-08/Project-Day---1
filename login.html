@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+
+<form method="post" onsubmit="handlelogin(); return false;">
+	<h2>Log In </h2>
+	UserName: <input type="text" id="user" name="username"><br><br>
+	Password: <input type="password" id="pass" name="password"><br><br>
+	<button type="submit">Submit</button><br><br>
+</form>	
+
+	<script>
+		
+		const user = document.getElementById('user');
+		const pass = document.getElementById('pass');
+
+		const handlelogin = () =>{
+			const username = user.value;
+			const password = pass.value;
+
+			if(username == 'admin'){
+				if(password == 'admin'){
+					alert("Login Successful...")
+					window.location.href = 'file:///C:/Users/Khushnuma/Desktop/Khushnuma%20VS%20Code/JavaScript/07-login/marksheet.html';
+				}else{
+					alert("Wrong Password");
+				}
+			}else{
+				alert("Wrong User ID")
+			}
+		}
+
+
+	</script>
+
+</body>
+</html>

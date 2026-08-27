@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>MarkSheet</title>
+</head>
+<body>
+
+<form method="post" onsubmit="handlemarksheet(); return false;">
+	<h2>MarkSheet</h2>
+	Roll NO: <input type="number" id="rollno" name="rollno"><br><br>
+	Name: <input type="text" id="name" name="name"><br><br>
+	Subject 1: <input type="number" id="sub1" name=""><br><br>
+	Subject 2: <input type="number" id="sub2" name=""><br><br>
+	Subject 3: <input type="number" id="sub3" name=""><br><br>
+
+	<button type="submit">Submit</button><br><br>
+</form>
+
+<p id="d-rollno"></p>
+<p id="d-name"></p>
+<p id="d-sub1"></p>
+<p id="d-sub2"></p>
+<p id="d-sub3"></p>
+<p id="d-total"></p>
+<p id="d-avg"></p>
+<p id="d-status"></p>
+<p id="d-grade"></p>
+
+
+<script>
+	const handlemarksheet = ()=>{
+
+	const rollno = document.getElementById('rollno').value;
+	const name = document.getElementById('name').value;
+	const sub1 = Number(document.getElementById('sub1').value);
+	const sub2 = Number(document.getElementById('sub2').value);
+	const sub3 = Number(document.getElementById('sub3').value);
+
+	document.getElementById('d-rollno').textContent = `Roll no is: ${rollno}`;
+	document.getElementById('d-name').textContent = `Name is: ${name}`;
+	document.getElementById('d-sub1').textContent = `Subect 1 Marks is: ${sub1}`;
+	document.getElementById('d-sub2').textContent = `Subect 2 Marks is: ${sub2}`;
+	document.getElementById('d-sub3').textContent = `Subect 3 Marks is: ${sub3}`;
+
+	const total = sub1 + sub2 + sub3;
+	const avg = total / 3;
+	let isPass = false;
+	let grade = '';
+
+	if(sub1 >= 35 && sub2 >= 35 && sub3 >= 35){
+		isPass = true
+	}
+
+	if(!isPass){
+		alert("Student not Pass.");
+		return ;
+	}
+
+	if(avg >= 80){
+		grade ='A';
+	}else if(avg >= 60){
+		grade = 'B';
+	}else if(avg >= 50){
+		grade = 'C';
+	}else{
+		grade = 'Pass Class';
+	}
+
+
+	document.getElementById('d-total').textContent = `Total Marks: ${total}`;
+	document.getElementById('d-avg').textContent = `Avgerage: ${avg}`;
+	document.getElementById('d-status').textContent = `Status: ${isPass ? 'Pass' : 'Fail'}`;
+	document.getElementById('d-grade').textContent = `Grade: ${grade}`;
+
+	document.getElementById("rollno").value = "";
+	document.getElementById("name").value = "";
+	document.getElementById("sub1").value = "";
+	document.getElementById("sub2").value = "";
+	document.getElementById("sub3").value = "";
+}	
+
+</script>
+
+</body>
+</html>

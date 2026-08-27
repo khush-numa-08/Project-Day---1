@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+</head>
+<body>
+    
+<script>
+    let user = "admin";
+    let pass = "admin";
+
+    let username = prompt("Enter Username: ");
+    let password = prompt("Enter Password: ");
+
+
+    if(user == username){
+        if(pass == password){
+            let check = confirm("Do you Want to Cange Password.");
+
+            if(check){
+                let newPassword = prompt("Enter New Password: ");
+                let confirmPassword = prompt("Enter Confirm Password: ");
+
+                if(newPassword = confirmPassword){
+                    pass = newPassword;
+                }
+                else{
+                    console.log("New and Confirm Password do not match");
+                    
+                }
+            }
+        }
+        else{
+                console.log("Wrong Password")
+            }
+    }
+    else{
+            console.log("User not Exist")
+        }
+
+        console.log(password,newPassword)
+
+</script>
+
+</body>
+</html>

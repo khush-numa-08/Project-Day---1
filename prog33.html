@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <h2>Basic Calculator</h2>
+        <div>
+            <label for="">Num1</label> <input type="number" id="num1">
+            <br><br>
+            <label for="">Num2</label> <input type="number" id="num2">
+        </div>
+        <button type="button" onclick="calc();">Find Min</button>
+    </form>
+
+    <h2 id="result"></h2>
+
+    <script>
+
+        const result = document.getElementById('result');
+
+        function calc(){
+            const num1 = Number(document.getElementById('num1').value);
+            const num2 = Number(document.getElementById('num2').value);
+
+            if(num1 < num2){
+                result.innerHTML = `Number 1 is Min: ${num1}`;
+            }else if(num1 > num2){
+                result.innerHTML = `Number 2 is Min: ${num2}`;
+            }else{
+                result.innerHTML = `Same Value`;
+            }
+        }
+
+    </script>
+
+</body>
+</html>
